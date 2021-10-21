@@ -15,7 +15,7 @@ const PostModel = mongoose.model(
         },
         favoriteFoods : [
             {
-                type: String,
+                type: Array,
                 require: true
             }
         ],

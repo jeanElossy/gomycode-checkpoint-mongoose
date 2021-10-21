@@ -6,7 +6,11 @@ const PostModel = require("../models/post_model");
 // get
 router.get("/", (req, res) => {
     PostModel.find((err, docs) => { 
-        !err && res.send(docs)
+        if(!err) {
+            res.send(docs)
+        }else{
+            console.log(`Get error: ${err}`)
+        }
     })
 })
 
@@ -15,11 +19,16 @@ router.post('/', (req, res) => {
     const newPerson = new PostModel({
         nom: req.body.nom,
         age: req.body.age,
-        favoriteFoods: req.body.favoriteFoods
+        favoriteFoods: req.body.favoriteFoods,
+        date: req.body.date
     });
 
     newPerson.save((err, docs) => {
-        !err && res.send(docs)
+        if(!err) {
+            res.send(docs)
+        }else{
+            console.log(`Post error: ${err}`)
+        }
     })
 })
 
