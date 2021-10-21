@@ -13,12 +13,10 @@ const PostModel = mongoose.model(
             type: Number,
             require: true
         },
-        favoriteFoods : [
-            {
-                type: Array,
-                require: true
-            }
-        ],
+        favoriteFoods : {
+            type: Array,
+            require: true
+        },
         date : {
             type: Date,
             default: Date.now
